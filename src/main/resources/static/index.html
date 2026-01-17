@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casa in Affitto - Salento</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Arial', sans-serif;
+line-height: 1.6;
+color: #333;
+background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+min-height: 100vh;
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 20px;
+}
+
+header {
+text-align: center;
+margin-bottom: 40px;
+}
+
+h1 {
+font-size: 3em;
+color: #2c3e50;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+margin-bottom: 10px;
+}
+
+.tagline {
+font-size: 1.2em;
+color: #7f8c8d;
+}
+
+.property {
+background: white;
+border-radius: 20px;
+box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+overflow: hidden;
+margin-bottom: 40px;
+transition: transform 0.3s;
+}
+
+.property:hover {
+transform: translateY(-10px);
+}
+
+.main-gallery {
+position: relative;
+height: 400px;
+overflow: hidden;
+margin-bottom: 20px;
+}
+
+.main-gallery img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.5s;
+position: absolute;
+top: 0;
+left: 0;
+}
+
+.main-gallery:hover img {
+transform: scale(1.05);
+}
+
+.dots {
+position: absolute;
+bottom: 20px;
+left: 50%;
+transform: translateX(-50%);
+display: flex;
+gap: 10px;
+}
+
+.dot {
+width: 12px;
+height: 12px;
+border-radius: 50%;
+background: rgba(255, 255, 255, 0.5);
+cursor: pointer;
+transition: background 0.3s;
+}
+
+.dot.active {
+background: white;
+}
+
+#room-gallery {
+display: none;
+} /* Nascondi inizialmente */
+#room-gallery.active {
+display: block;
+}
+
+.filter-buttons {
+text-align: center;
+margin: 20px 0;
+}
+
+.filter-buttons button {
+margin: 0 10px;
+padding: 12px 24px;
+background: #3498db;
+color: white;
+border: none;
+border-radius: 25px;
+cursor: pointer;
+font-size: 1em;
+transition: background 0.3s;
+}
+
+.filter-buttons button:hover, .filter-buttons button.active {
+background: #2980b9;
+}
+
+.room-gallery-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 15px;
+padding: 20px 0;
+}
+
+.room-gallery-img {
+width: 100%;
+height: 200px;
+object-fit: cover;
+border-radius: 12px;
+box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s;
+cursor: pointer;
+}
+
+.room-gallery-img:hover {
+transform: scale(1.05);
+}
+
+.room-gallery-img.hidden {
+display: none;
+}
+
+.content {
+padding: 40px;
+}
+
+.price {
+font-size: 2.5em;
+color: #27ae60;
+font-weight: bold;
+margin-bottom: 20px;
+}
+
+.location {
+font-size: 1.3em;
+color: #e74c3c;
+margin-bottom: 20px;
+}
+
+.features {
+display: flex;
+flex-wrap: wrap;
+gap: 15px;
+margin-bottom: 30px;
+}
+
+.feature {
+background: #3498db;
+color: white;
+padding: 10px 20px;
+border-radius: 25px;
+font-size: 0.9em;
+}
+
+.description {
+font-size: 1.1em;
+line-height: 1.8;
+color: #555;
+}
+
+.contact {
+margin-top: 30px;
+text-align: center;
+}
+
+.btn {
+display: inline-block;
+background: #e74c3c;
+color: white;
+padding: 15px 40px;
+border-radius: 50px;
+text-decoration: none;
+font-weight: bold;
+font-size: 1.1em;
+transition: background 0.3s;
+}
+
+.btn:hover {
+background: #c0392b;
+}
+
+.toggle-gallery {
+background: #f39c12;
+margin-bottom: 20px;
+}
+
+.toggle-gallery:hover {
+background: #e67e22;
+}
+
+.description-section {
+line-height: 1.7;
+color: #444;
+}
+
+.description-section h3 {
+color: #2c3e50;
+margin: 0 0 15px 0;
+font-size: 1.4em;
+}
+
+.description-section h4 {
+color: #34495e;
+margin: 25px 0 15px 0;
+font-size: 1.1em;
+}
+
+.location-badge {
+background: linear-gradient(135deg, #3498db, #2980b9);
+color: white;
+padding: 15px;
+border-radius: 12px;
+text-align: center;
+margin-bottom: 20px;
+box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.highlight-box {
+background: #27ae60;
+color: white;
+padding: 20px;
+border-radius: 12px;
+text-align: center;
+margin: 20px 0;
+font-size: 1.2em;
+box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+}
+
+.features-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+gap: 12px;
+margin: 25px 0;
+}
+
+.feature-item {
+background: #ecf0f1;
+padding: 15px;
+border-radius: 10px;
+text-align: center;
+font-weight: 500;
+transition: transform 0.2s;
+}
+
+.feature-item:hover {
+transform: translateY(-2px);
+}
+
+.feature-item .icon {
+font-size: 1.5em;
+display: block;
+margin-bottom: 5px;
+}
+
+.amenities-list {
+background: #f8f9fa;
+padding: 20px;
+border-radius: 10px;
+margin: 20px 0;
+list-style: none;
+}
+
+.amenities-list li {
+padding: 8px 0;
+font-size: 1em;
+border-left: 4px solid #3498db;
+padding-left: 15px;
+margin-bottom: 5px;
+}
+
+.position-highlight {
+background: linear-gradient(135deg, #f39c12, #e67e22);
+color: white;
+padding: 20px;
+border-radius: 12px;
+margin: 25px 0;
+}
+
+.position-highlight h4 {
+color: white;
+margin-top: 0;
+}
+
+@media ( max-width : 768px) {
+.features-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+.amenities-list {
+padding: 15px;
+}
+}
+
+@media ( max-width : 768px) {
+.main-gallery {
+height: 250px;
+}
+h1 {
+font-size: 2em;
+}
+.content {
+padding: 20px;
+}
+.room-gallery-grid {
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>🏠 Casa Bellavista2</h1>
+<p class="tagline">Affitto Mensile a Torre Pali</p>
+</header>
+
+<div class="property">
+<div class="main-gallery" id="main-gallery">
+<img src="images/prospetto/prospetto_1.jpg"
+alt="Vista generale casa"> <img
+src="images/prospetto/prospetto_2.jpg" alt="Vista generale casa">
+<img src="images/giardino/giardino_1.jpg" alt="Giardino"> <img
+src="images/giardino/giardino_2.jpg" alt="Giardino"> <img
+src="images/giardino/giardino_3.jpg" alt="Giardino"> <img
+src="images/giardino/giardino_4.jpg" alt="Giardino">
+
+<div class="dots" id="dots"></div>
+</div>
+
+<button class="filter-buttons toggle-gallery"
+onclick="toggleRoomGallery()"
+style="width: 100%; padding: 15px; font-size: 1.2em;">👁️
+Visualizza Gallery per Stanza</button>
+
+<div id="room-gallery">
+<div class="filter-buttons">
+<button class="active" onclick="filterRoomImages('all')">Tutte
+le Stanze</button>
+<button onclick="filterRoomImages('prospetto')">Prospetto</button>
+<button onclick="filterRoomImages('giardino')">Giardino</button>
+<button onclick="filterRoomImages('cucina')">Cucina</button>
+<button onclick="filterRoomImages('soggiorno')">Soggiorno</button>
+<button onclick="filterRoomImages('camera')">Camere</button>
+<button onclick="filterRoomImages('bagno')">Bagni</button>
+</div>
+<div class="room-gallery-grid" id="room-gallery-container">
+<!-- Aggiungi qui tutte le tue immagini con class="room-gallery-img cucina" ecc. -->
+<img src="images/prospetto/prospetto_1.jpg" alt="Prospetto"
+class="room-gallery-img prospetto"> <img
+src="images/prospetto/prospetto_2.jpg" alt="Prospetto"
+class="room-gallery-img prospetto"> <img
+src="images/giardino/giardino_1.jpg" alt="Giardino"
+class="room-gallery-img giardino"> <img
+src="images/giardino/giardino_2.jpg" alt="Giardino"
+class="room-gallery-img giardino"> <img
+src="images/giardino/giardino_3.jpg" alt="Giardino"
+class="room-gallery-img giardino"> <img
+src="images/giardino/giardino_4.jpg" alt="Giardino"
+class="room-gallery-img giardino"> <img
+src="images/cucina/cucina.jpg" alt="Cucina"
+class="room-gallery-img cucina"> <img
+src="images/soggiorno/soggiorno_1.jpg" alt="Soggiorno"
+class="room-gallery-img soggiorno"> <img
+src="images/soggiorno/soggiorno_2.jpg" alt="Soggiorno"
+class="room-gallery-img soggiorno"> <img
+src="images/soggiorno/soggiorno_3.jpg" alt="Soggiorno"
+class="room-gallery-img soggiorno"> <img
+src="images/primacamera/prima_camera_1.jpg" alt="Prima camera"
+class="room-gallery-img camera"> <img
+src="images/primacamera/prima_camera_2.jpg" alt="Prima camera"
+class="room-gallery-img camera"> <img
+src="images/primacamera/prima_camera_3.jpg" alt="Prima camera"
+class="room-gallery-img camera"> <img
+src="images/secondacamera/seconda_camera_1.jpg"
+alt="Seconda camera" class="room-gallery-img camera"> <img
+src="images/secondacamera/seconda_camera_2.jpg"
+alt="Seconda camera" class="room-gallery-img camera"> <img
+src="images/secondacamera/seconda_camera_3.jpg"
+alt="Seconda camera" class="room-gallery-img camera"> <img
+src="images/secondacamera/seconda_camera_4.jpg"
+alt="Seconda camera" class="room-gallery-img camera"> <img
+src="images/terzacamera/terza_camera_1.jpg" alt="Terza camera"
+class="room-gallery-img camera"> <img
+src="images/terzacamera/terza_camera_2.jpg" alt="Terza camera"
+class="room-gallery-img camera"> <img
+src="images/primobagno/primo_bagno.jpg" alt="Primo bagno"
+class="room-gallery-img bagno"> <img
+src="images/secondobagno/secondo_bagno.jpg" alt="Secondo bagno"
+class="room-gallery-img bagno">
+<!-- Aggiungi quante ne vuoi -->
+</div>
+</div>
+
+<div class="content">
+<div class="location">📍 Torre Pali, Salento</div>
+<div class="features">
+<span class="feature">3 Camere</span> <span class="feature">1
+Bagno</span> <span class="feature">100m²</span> <span class="feature">Giardino</span>
+<span class="feature">Arredata</span> <span class="feature">WiFi
+Fibra</span> <span class="feature">Climatizzata</span>
+</div>
+<div class="description-section">
+<h3>
+🏖️ <strong>Casa Bellavista 2</strong> – Torre Pali
+</h3>
+<p class="location-badge">
+<strong>📍 Marina di Salve, Sud Salento</strong><br> <small>CIN:
+IT075066C200071298 | CIS: LE0750669100003109</small>
+</p>
+
+<div class="highlight-box">
+<p>
+<strong>✨ A soli 20 metri dalla spiaggia sabbiosa!</strong>
+</p>
+</div>
+
+<p>
+Casa Bellavista 2 è un <strong>ampio quadrilocale al
+piano terra (90 mq)</strong>, perfetto per famiglie e gruppi che cercano
+comfort e relax nel cuore del Salento.
+</p>
+
+<div class="features-grid">
+<div class="feature-item">
+<span class="icon">🏠</span> 4 Vani
+</div>
+<div class="feature-item">
+<span class="icon">🛏️</span> 3 Camere
+</div>
+<div class="feature-item">
+<span class="icon">🚗</span> 2 Posti Auto
+</div>
+<div class="feature-item">
+<span class="icon">🌳</span> Giardino Privato
+</div>
+</div>
+
+<h4>Spazi e Comfort:</h4>
+<ul class="amenities-list">
+<li>✅ Soggiorno-pranzo con angolo cottura attrezzato</li>
+<li>✅ Camera matrimoniale + singolo con bagno privato</li>
+<li>✅ Camera matrimoniale</li>
+<li>✅ Camera tripla (3 letti singoli)</li>
+<li>✅ 2 Bagni + doccia esterna</li>
+<li>✅ Aria condizionata + ventilatori</li>
+<li>✅ Lavatrice + TV satellitare</li>
+</ul>
+
+<div class="position-highlight">
+<h4>📖 Posizione Strategica:</h4>
+<p>
+A pochi passi da <strong>market, bar, ristoranti,
+pizzeria, gelateria</strong> e dal porticciolo turistico. A soli <strong>2
+km dalle Maldive del Salento</strong>.
+</p>
+</div>
+</div>
+<div class="contact">
+<a href="https://wa.me/3804580135" class="btn" target="_blank">📱
+WhatsApp</a>
+<p style="margin-top: 10px; color: #7f8c8d;">Disponibile da
+subito • Riferimento: umbertocc@hotmail.it</p>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+// Slideshow principale (invariato)
+const mainImages = document.querySelectorAll('#main-gallery img');
+const dotsContainer = document.getElementById('dots');
+let currentIndex = 0;
+
+mainImages.forEach((_, index) => {
+const dot = document.createElement('div');
+dot.classList.add('dot');
+if (index === 0) dot.classList.add('active');
+dot.addEventListener('click', () => goToSlide(index));
+dotsContainer.appendChild(dot);
+});
+
+const dots = document.querySelectorAll('.dot');
+
+function goToSlide(index) {
+mainImages[currentIndex].style.opacity = '0';
+dots[currentIndex].classList.remove('active');
+currentIndex = index;
+mainImages[currentIndex].style.opacity = '1';
+dots[currentIndex].classList.add('active');
+}
+
+setInterval(() => {
+goToSlide((currentIndex + 1) % mainImages.length);
+}, 4000);
+
+mainImages.forEach((img, index) => {
+img.style.opacity = index === 0 ? '1' : '0';
+img.style.transition = 'opacity 0.5s';
+});
+
+// Gallery per stanza
+let roomGalleryVisible = false;
+
+function toggleRoomGallery() {
+const roomGallery = document.getElementById('room-gallery');
+roomGallery.classList.toggle('active');
+roomGalleryVisible = !roomGalleryVisible;
+const btn = event.target;
+btn.textContent = roomGalleryVisible ? '✖️ Chiudi Gallery Stanze' : '👁️ Visualizza Gallery per Stanza';
+}
+
+function filterRoomImages(category) {
+const images = document.querySelectorAll('.room-gallery-img');
+const buttons = document.querySelectorAll('.filter-buttons button');
+
+buttons.forEach(btn => btn.classList.remove('active'));
+event.target.classList.add('active');
+
+images.forEach(img => {
+img.classList.remove('hidden');
+if (category !== 'all' && !img.classList.contains(category)) {
+img.classList.add('hidden');
+}
+});
+}
+</script>
+</body>
+</html>
