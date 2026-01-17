@@ -16,7 +16,7 @@ public class KeepAlivePing {
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
         scheduler.scheduleAtFixedRate(() -> {
             try {
-                restTemplate.getForObject("https://affitto.torrepalivacanze.it/", String.class);
+            	restTemplate.getForObject("/health", String.class);
                 System.out.println("Keep-alive ping OK");
             } catch (Exception e) {
                 System.err.println("Ping failed: " + e.getMessage());
