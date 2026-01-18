@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏖️ Torre Pali - Affitto Mensile TorrePaliVacanze.it</title>
+    <meta name="description" content="Torre Pali Salento 2026: spiagge caraibiche Bandiera Blu, torre sommersa 1570, dune protette, affitti vista mare. Foto esclusive e guida completa.">
+    <meta name="google-site-verification" content="PB3K35_CDA-mOUkVc5ptTuWZO9RubD8ecEFiM00lL0w">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: linear-gradient(to bottom, #87CEEB, #98D8C8); color: #333; line-height: 1.6; text-align: center; }
+        header { background: #27ae60; color: white; padding: 30px 20px; margin: -20px -20px 30px -20px; }
+        h1 { margin: 0; font-size: 2.5em; }
+        h2 { color: #2c3e50; margin-top: 40px; }
+        img { max-width: 100%; height: auto; border-radius: 10px; margin: 20px 0; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1000px; margin: 0 auto; }
+        .gallery img { width: 300px; flex: 1 1 300px; }
+        .btn { background: #27ae60; color: white; padding: 15px 30px; border-radius: 25px; font-size: 1.2em; font-weight: bold; text-decoration: none; display: inline-block; box-shadow: 0 5px 15px rgba(39,174,96,0.3); transition: all 0.3s; margin: 30px 0; }
+        .btn:hover { background: #219a52; transform: translateY(-2px); }
+        footer { background: #34495e; color: white; padding: 20px; margin-top: 50px; }
+        .hidden { display: none; }
+        @media (max-width: 768px) { .gallery { flex-direction: column; } h1 { font-size: 2em; } }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🏖️ Torre Pali - Le Maldive del Salento</h1>
+        <p>Spiaggia Bandiera Blu dal 2007, 3 km di sabbia finissima bianca, dune mediterranee protette e torre cinquecentesca sommersa dal mare.[web:6][web:9]</p>
+    </header>
+
+    <div style="max-width: 800px; margin: 0 auto;">
+        <section>
+            <h2>🌊 La Spiaggia e il Mare</h2>
+            <p>Acque cristalline turchesi con fondali bassi sabbiosi, ideali per bambini, famiglie e snorkeling. Sabbia impalpabile come farina, lambita da dune di macchia con ginepri secolari. Estate calda ma ventilata, perfetta per kitesurf e beach volley.</p>
+            <!-- Inserisci qui la tua foto principale -->
+            <img src="images/torre-pali/torrepali2.jpg" alt="Torre Pali spiaggia principale con dune" class="main-photo">
+        </section>
+
+        <section>
+            <h2>🏰 La Torre Storica</h2>
+            <p>Costruita nel 1570 dagli Aragonesi per avvistare pirati saraceni, oggi parzialmente sommersa dall'erosione marina. Alta 15 metri originariamente, domina il litorale come icona del Salento. Leggende locali narrano tesori nascosti nei fondali vicini.</p>
+            <img src="images/torre-pali/torrepali1.jpg" alt="Torre Pali sommersa XVI secolo" class="torre-pali">
+        </section>
+
+        <section>
+            <h2>📍 Come Arrivare e Servizi</h2>
+            <p>A 5 km da Salve (centro abitato con market, farmacie), 10 min da Leuca. Accesso facile da SP358, parcheggio gratuito lungo la litoranea. Lidi attrezzati con bar, noleggio pedalo', ombrelloni. Zona libera estesa, cani ammessi in aree dedicate.</p>
+        </section>
+
+        <section>
+            <h2>🌅 Attrazioni Vicine</h2>
+            <p>Pescoluse (Maldive Salento) a 5 km, Torre Vado con porto turistico a 3 km, Capo d'Oro e Ciolo per escursioni. Interno: Ugento (museo archeologico), Patù (chiese rupestri). Ideale base per scoprire Capo Santa Maria di Leuca.</p>
+        </section>
+
+        <section>
+            <h2>📸 Galleria Foto</h2>
+            <div class="gallery">
+                <!-- Sostituisci con le tue foto -->
+                <img src="images/torre-pali/torrepali4.jpg" alt="Foto Torre Pali 2 dune e mare" class="torre-pali">
+                <img src="images/torre-pali/torrepali3.jpg" alt="Foto Torre Pali 3 tramonto" class="torre-pali">
+                <img src="images/torre-pali/torrepali5.jpg" alt="Foto Torre Pali 4 torre ravvicinata" class="torre-pali">
+            </div>
+        </section>
+
+        <a href="index.html" class="btn">🏠 Torna a Casa Bellavista 2 Vista Mare</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 TorrePaliVacanze.it | Vacanze autentiche nel Salento</p>
+    </footer>
+
+    <script>
+        function filterImages(category) {
+            const imgs = document.querySelectorAll('.gallery img');
+            imgs.forEach(img => {
+                img.classList.remove('hidden');
+                if (category !== 'all' && !img.classList.contains(category)) {
+                    img.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
