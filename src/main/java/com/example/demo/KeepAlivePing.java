@@ -2,7 +2,7 @@ package com.example.demo; // tua package
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.ScheduledExecutorService;

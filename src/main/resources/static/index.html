@@ -116,6 +116,25 @@ h1 {
 	animation: fadeIn 0.3s ease;
 }
 
+.btn-prenotazioni {
+  background: linear-gradient(135deg, #27ae60, #229954) !important;
+  margin-right: 15px;
+}
+
+.btn-prenotazioni:hover {
+  background: linear-gradient(135deg, #229954, #1e8449) !important;
+  box-shadow: 0 10px 30px rgba(39, 174, 96, 0.4) !important;
+}
+
+@media (max-width: 768px) {
+  .btn-prenotazioni {
+    margin-right: 0;
+    margin-bottom: 15px;
+    display: block;
+    text-align: center;
+  }
+}
+
 
 @keyframes fadeIn {from { opacity:0;
 	transform: translateY(10px);
@@ -189,6 +208,67 @@ to {
 	background: linear-gradient(135deg, #27ae60, #229954);
 	box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
 	transform: scale(1.05);
+}
+
+footer {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: #ecf0f1;
+  text-align: center;
+  padding: 40px 20px 30px;
+  margin-top: 60px;
+  font-size: 0.95em;
+  line-height: 1.6;
+  box-shadow: 0 -8px 30px rgba(0,0,0,0.2);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-brand {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-links a {
+  color: #3498db;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #27ae60;
+}
+
+.footer-copy {
+  margin-top: 20px;
+  font-size: 0.9em;
+  opacity: 0.9;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 15px;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-links {
+    order: -1;
+  }
 }
 
 .room-gallery-grid {
@@ -574,11 +654,12 @@ to {
 				</div>
 
 				<div class="contact">
-					<a href="https://wa.me/3804580135" class="btn" target="_blank">📱
-						Contattaci su WhatsApp</a>
-					<p style="margin-top: 15px; color: #7f8c8d; font-size: 1em;">
-						Disponibile da subito • Riferimento: umbertocc@hotmail.it</p>
-				</div>
+                 <a href="prenotazioni.html" class="btn btn-prenotazioni" target="_blank">📅 Richiedi info</a>
+                  <a href="https://wa.me/3804580135" class="btn" target="_blank">📱 Contattaci su WhatsApp</a>
+                 <p style="margin-top: 15px; color: #7f8c8d; font-size: 1em;">
+                    Disponibile da subito • Riferimento: umbertocc@hotmail.it
+                  </p>
+                </div>
 			</div>
 		</div>
 	</div>
@@ -672,6 +753,24 @@ to {
     closeButton: false  // Rimuovi X per pulizia
   }).openPopup();
 </script>
+
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">🏠 TorrePaliVacanze.it – Vacanze autentiche nel Salento</div>
+      <div class="footer-links">
+        <a href="mailto:umbertocc@hotmail.it">📧 umbertocc@hotmail.it</a>
+        <a href="tel:+393804580135">📱 +39 380 4580135</a>
+        <a href="privacy.html" target="_blank">Privacy Policy</a>
+        <a href="cookies.html" target="_blank">Cookie Policy</a>
+        <a href="https://wa.me/3804580135" target="_blank">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      © 2026 TorrePaliVacanze.it | Tutti i diritti riservati | CIN: IT075066C200071298 | CIS: LE0750669100003109]
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
