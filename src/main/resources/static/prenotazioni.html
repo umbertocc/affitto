@@ -137,13 +137,14 @@
   </div>
 
   <script>
+    const API_BASE_URL = window.location.hostname === 'localhost' ? 'http://localhost:8082' : 'https://affitto.torrepalivacanze.it';
     document.addEventListener('DOMContentLoaded', function() {
       const calendarEl = document.getElementById('calendar');
       const calendar = new FullCalendar.Calendar(calendarEl, {
         headerToolbar: { left: 'prev,next today', center: 'title', right: 'dayGridMonth,timeGridWeek' },
         initialView: 'dayGridMonth',
         initialDate: new Date(),
-        events: 'http://localhost:8082/api/bookings/disponibilita-all?propertyId=1',
+        events: `${API_BASE_URL}/api/bookings/disponibilita-all?propertyId=1`,
         dateClick: function(info) {
           if (!info.event) {
             document.getElementById('checkin').value = info.dateStr;
@@ -178,7 +179,8 @@
       }
       
       try {
-        const response = await fetch(`http://localhost:8082/api/bookings/disponibilita?propertyId=1&start=${checkin}&end=${checkout}`);
+
+        const response = await fetch(`${API_BASE_URL}/api/bookings/disponibilita?propertyId=1&start=${checkin}&end=${checkout}`);
         const events = await response.json();
         
         const formEsistente = document.getElementById('form-contatti');
@@ -256,7 +258,7 @@
         messaggio: document.getElementById('messaggio').value
       };
       
-      await fetch('http://localhost:8082/api/bookings/richieste', {
+      await fetch(`${API_BASE_URL}/api/bookings/richieste`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(dati)
