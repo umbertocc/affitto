@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://torrepalivacanze.it/sitemap.xml
+Sitemap: https://affitto.torrepalivacanze.it/sitemap.xml

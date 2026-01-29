@@ -1,0 +1,14 @@
+# Immagini: cache 1 anno (immutabili)
+ /images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# CSS inline/altri statici
+ *.css *.woff *.woff2 *.ico
+  Cache-Control: public, max-age=31536000, immutable
+
+# Pagine HTML: cache 1 giorno + revalidate
+ *.html
+  Cache-Control: public, max-age=86400, stale-while-revalidate=86400
+
+/leaflet.*
+  Cache-Control: no-cache, no-store

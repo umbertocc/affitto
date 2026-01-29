@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="it">
-<link rel="stylesheet"
-	href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://affitto.torrepalivacanze.it/">
 <title>Affitto Torre Pali Salento Casa Bellavista 2 | 20m Spiaggia</title>
 <meta property="og:title" content="Affitto Casa Bellavista 2 Torre Pali Salento | 20m Spiaggia">
 <meta property="og:description" content="Casa 90m² a 20m spiaggia Bandiera Blu. 3 camere, WiFi, AC. Vacanze perfette!">
@@ -19,6 +17,9 @@
                                affitti brevi salve, spiaggia torre pali, case salento 2026, affitto 3 camere salento">
 <meta name="google-site-verification"
 	content="PB3K35_CDA-mOUkVc5ptTuWZO9RubD8ecEFiM00lL0w">
+<link rel="stylesheet"
+	href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
 * {
 	margin: 0;
@@ -464,6 +465,29 @@ footer {
 	box-shadow: 0 6px 20px rgba(231, 76, 60, 0.3);
 }
 
+@media (max-width: 768px) {
+  .contact {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;  /* Spazio tra pulsanti */
+    align-items: center;
+  }
+  
+  .contact .btn {
+    width: 100%;
+    max-width: 300px;
+    margin: 0;  /* Reset margin */
+  }
+  
+  .btn-chiama {
+    order: -1;  /* Chiama per primo su mobile */
+    background: #28a745 !important;
+    padding: 18px 30px;  /* Stesso stile WhatsApp */
+    border-radius: 50px;  /* Uniforme */
+  }
+}
+
+
 .btn:hover {
 	transform: translateY(-3px);
 	box-shadow: 0 10px 30px rgba(231, 76, 60, 0.4);
@@ -551,48 +575,27 @@ footer {
 				</div>
 
 				<div class="room-gallery-grid" id="room-gallery-container">
-					<img src="images/prospetto/prospetto_1.jpg" alt="Prospetto"
-						class="room-gallery-img prospetto"> <img
-						src="images/prospetto/prospetto_2.jpg" alt="Prospetto"
-						class="room-gallery-img prospetto"> <img
-						src="images/giardino/giardino_1.jpg" alt="Giardino"
-						class="room-gallery-img giardino"> <img
-						src="images/giardino/giardino_2.jpg" alt="Giardino"
-						class="room-gallery-img giardino"> <img
-						src="images/giardino/giardino_3.jpg" alt="Giardino"
-						class="room-gallery-img giardino"> <img
-						src="images/giardino/giardino_4.jpg" alt="Giardino"
-						class="room-gallery-img giardino"> <img
-						src="images/cucina/cucina.jpg" alt="Cucina"
-						class="room-gallery-img cucina"> <img
-						src="images/soggiorno/soggiorno_1.jpg" alt="Soggiorno"
-						class="room-gallery-img soggiorno"> <img
-						src="images/soggiorno/soggiorno_2.jpg" alt="Soggiorno"
-						class="room-gallery-img soggiorno"> <img
-						src="images/soggiorno/soggiorno_3.jpg" alt="Soggiorno"
-						class="room-gallery-img soggiorno"> <img
-						src="images/primacamera/prima_camera_1.jpg" alt="Prima camera"
-						class="room-gallery-img camera"> <img
-						src="images/primacamera/prima_camera_2.jpg" alt="Prima camera"
-						class="room-gallery-img camera"> <img
-						src="images/primacamera/prima_camera_3.jpg" alt="Prima camera"
-						class="room-gallery-img camera"> <img
-						src="images/secondacamera/seconda_camera_1.jpg"
-						alt="Seconda camera" class="room-gallery-img camera"> <img
-						src="images/secondacamera/seconda_camera_2.jpg"
-						alt="Seconda camera" class="room-gallery-img camera"> <img
-						src="images/secondacamera/seconda_camera_3.jpg"
-						alt="Seconda camera" class="room-gallery-img camera"> <img
-						src="images/secondacamera/seconda_camera_4.jpg"
-						alt="Seconda camera" class="room-gallery-img camera"> <img
-						src="images/terzacamera/terza_camera_1.jpg" alt="Terza camera"
-						class="room-gallery-img camera"> <img
-						src="images/terzacamera/terza_camera_2.jpg" alt="Terza camera"
-						class="room-gallery-img camera"> <img
-						src="images/primobagno/primo_bagno.jpg" alt="Primo bagno"
-						class="room-gallery-img bagno"> <img
-						src="images/secondobagno/secondo_bagno.jpg" alt="Secondo bagno"
-						class="room-gallery-img bagno">
+					    <img src="images/prospetto/prospetto_1.jpg" alt="Prospetto" class="room-gallery-img prospetto"  class="prospetto-img"fetchpriority="high" width="1200" height="400">
+						<img src="images/prospetto/prospetto_2.jpg" alt="Prospetto" class="room-gallery-img prospetto" fetchpriority="high" width="1200" height="400">
+						<img src="images/giardino/giardino_1.jpg" alt="Giardino" class="room-gallery-img giardino" loading="lazy"> 
+						<img src="images/giardino/giardino_2.jpg" alt="Giardino" class="room-gallery-img giardino" loading="lazy">
+						<img src="images/giardino/giardino_3.jpg" alt="Giardino" class="room-gallery-img giardino" loading="lazy">
+						<img src="images/giardino/giardino_4.jpg" alt="Giardino" class="room-gallery-img giardino" loading="lazy">
+						<img src="images/cucina/cucina.jpg" alt="Cucina" class="room-gallery-img cucina" loading="lazy">
+						<img src="images/soggiorno/soggiorno_1.jpg" alt="Soggiorno" class="room-gallery-img soggiorno" loading="lazy">
+						<img src="images/soggiorno/soggiorno_2.jpg" alt="Soggiorno" class="room-gallery-img soggiorno" loading="lazy">
+						<img src="images/soggiorno/soggiorno_3.jpg" alt="Soggiorno" class="room-gallery-img soggiorno" loading="lazy">
+						<img src="images/primacamera/prima_camera_1.jpg" alt="Prima camera" class="room-gallery-img camera" loading="lazy">
+						<img src="images/primacamera/prima_camera_2.jpg" alt="Prima camera" class="room-gallery-img camera" loading="lazy">
+						<img src="images/primacamera/prima_camera_3.jpg" alt="Prima camera" class="room-gallery-img camera" loading="lazy"> 
+						<img src="images/secondacamera/seconda_camera_1.jpg" alt="Seconda camera" class="room-gallery-img camera" loading="lazy"> 
+						<img src="images/secondacamera/seconda_camera_2.jpg" alt="Seconda camera" class="room-gallery-img camera" loading="lazy"> 
+						<img src="images/secondacamera/seconda_camera_3.jpg" alt="Seconda camera" class="room-gallery-img camera" loading="lazy"> 
+						<img src="images/secondacamera/seconda_camera_4.jpg" alt="Seconda camera" class="room-gallery-img camera" loading="lazy"> 
+						<img src="images/terzacamera/terza_camera_1.jpg" alt="Terza camera" class="room-gallery-img camera" loading="lazy">
+						<img src="images/terzacamera/terza_camera_2.jpg" alt="Terza camera" class="room-gallery-img camera" loading="lazy"> 
+						<img src="images/primobagno/primo_bagno.jpg" alt="Primo bagno" class="room-gallery-img bagno" loading="lazy">
+						<img src="images/secondobagno/secondo_bagno.jpg" alt="Secondo bagno" class="room-gallery-img bagno" loading="lazy">
 				</div>
 			</div>
 
@@ -662,12 +665,13 @@ footer {
 				</div>
 
 				<div class="contact">
-                 <a href="prenotazioni.html" class="btn btn-prenotazioni" target="_blank">📅 Richiedi info</a>
-                  <a href="https://wa.me/3804580135" class="btn" target="_blank">📱 Contattaci su WhatsApp</a>
-                 <p style="margin-top: 15px; color: #7f8c8d; font-size: 1em;">
-                    Disponibile da subito • Riferimento: umbertocc@hotmail.it
-                  </p>
-                </div>
+                     <a href="prenotazioni.html" class="btn btn-prenotazioni" target="_blank">📅 Richiedi info</a>
+                     <a href="https://wa.me/3804580135" class="btn" target="_blank">📱 WhatsApp</a>
+                     <a href="tel:+39 3804580135" class="btn btn-chiama" target="_blank">📞 Chiama per info</a>
+                     <p style="margin-top: 15px; color: #7f8c8d; font-size: 1em;">
+                        Disponibile da subito • Riferimento: • 📞 +39 3804580135 • Risposta entro 1h
+                     </p>
+</div>
 			</div>
 		</div>
 	</div>
@@ -762,6 +766,51 @@ footer {
   }).openPopup();
 </script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VacationRental",
+  "identifier": "casa-bellavista-2",
+  "additionalType": "Apartment",
+  "name": "Casa Bellavista 2 Torre Pali Salento",
+  "description": "Appartamento 90m² a 20m dalla spiaggia Torre Pali, 3 camere, 2 bagni, AC, WiFi, cortile privato. Disponibile subito.",
+  "image": "https://affitto.torrepalivacanze.it/bio.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Torre Pali",
+    "addressRegion": "Puglia",
+    "addressCountry": "IT"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 39.8391,
+    "longitude": 18.2105
+  },
+  "telephone": "+3904580135",
+  "url": "https://affitto.torrepalivacanze.it",
+  "containsPlace": {
+    "@type": "Accommodation",
+    "floorSize": {
+      "@type": "QuantitativeValue",
+      "value": 90,
+      "unitCode": "MTK"
+    },
+    "numberOfRooms": 5,
+    "numberOfBedrooms": 3,
+    "numberOfBathroomsTotal": 2,
+    "occupancy": {
+      "@type": "QuantitativeValue",
+      "value": 6
+    },
+    "amenityFeature": [
+      {"@type": "LocationFeatureSpecification", "name": "WiFi", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "ac", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "beachAccess", "value": true}
+    ]
+  }
+}
+</script>
+
 <footer>
   <div class="container">
     <div class="footer-content">
@@ -775,7 +824,7 @@ footer {
       </div>
     </div>
     <div class="footer-copy">
-      © 2026 TorrePaliVacanze.it | Tutti i diritti riservati | CIN: IT075066C200071298 | CIS: LE0750669100003109]
+      © 2026 TorrePaliVacanze.it | Tutti i diritti riservati | CIN: IT075066C200071298 | CIS: LE0750669100003109
     </div>
   </div>
 </footer>
