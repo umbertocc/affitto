@@ -13,7 +13,7 @@ public class CorsConfig {
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOriginPatterns(List.of("https://www.affitto.torrepalivacanze.it", "https://affitto.torrepalivacanze.it", "http://localhost:3000"));
+        config.setAllowedOriginPatterns(List.of("https://www.torrepalivacanze.it", "https://affitto.torrepalivacanze.it", "http://localhost:3000"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
